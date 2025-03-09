@@ -1,16 +1,11 @@
-# from textnode import TextType, TextNode
-from htmlnode import HTMLNode
+from leafnode import LeafNode
 
 def main():
-    test_props = {
-        "href": "example.com",
-        "target": "_blank",
-        "fake_attr": "fake_value"
-    }
+    node = LeafNode("p", "This is a paragraph of text.")
+    print(node.to_html())
 
-    html_node = HTMLNode("a", "testing text", None, test_props)
-    print(html_node.props_to_html())
-
+    anchor = LeafNode("a", "Click me!", {"href": "https://www.google.com"})
+    print(anchor.to_html())
 
 
 if __name__ == "__main__":
