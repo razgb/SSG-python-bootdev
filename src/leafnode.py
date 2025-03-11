@@ -1,6 +1,9 @@
 from htmlnode import HTMLNode
 
 class LeafNode(HTMLNode):
+    """
+    Leaf Nodes must have values. props & tags are optional.
+    """
     def __init__(self, tag, value, props=None):
         super().__init__(tag, value, None, props)
 
@@ -8,7 +11,7 @@ class LeafNode(HTMLNode):
         if self.value is None:
             raise ValueError("Leaf node must have values.")
 
-        if not self.tag:
+        if self.tag is None:
             return self.value
 
         if self.tag == "img":
